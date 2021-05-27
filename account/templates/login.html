@@ -30,9 +30,9 @@
         align-items: center;
       }
     </style>
-    <h1>Login</h1>
+    <h1>로그인</h1>
 
-    <form action="" method="POST">
+    <form action="{%url 'login'%}" method="POST">
         {%csrf_token%}
         {{form.as_p}}
         <button type="submit">submit</button>

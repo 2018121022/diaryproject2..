@@ -16,7 +16,7 @@ def login_view(request):
             if user is not None:
                 login(request, user)
             
-            return render(request, 'cover.html')
+        return render(request, 'cover.html')
     
     else:
         form = AuthenticationForm()
@@ -25,3 +25,15 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("home")
+
+def register_view(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(user)
+        return  render(request, 'cover.html')
+
+    else: 
+        form = UserCreationForm()
+        return render(request, 'register.html', {'form':form})

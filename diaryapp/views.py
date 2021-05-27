@@ -1,5 +1,6 @@
 from django.http import request
 from django.shortcuts import get_object_or_404, redirect, render
+from .models import Diary
 
 # Create your views here.
 
